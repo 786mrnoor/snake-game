@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <span id="score-board">Score: 0</span>
+            <i onclick="openSetting(this)" class="fa-solid fa-gear" style="grid-area: 1/2;text-align: end;"></i>
+        </header>
+        <main>
+            <div id="board">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="level">
+                <h3>DIFFICULTY</h3>
+                <ul>
+                    <li onclick="chooseLevel(400)">
+                        <button>Easy</button>
+                    </li>
+                    <li onclick="chooseLevel(225)">
+                        <button>Medium</button>
+                    </li>
+                    <li onclick="chooseLevel(100)">
+                        <button>Hard</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="setting" style="z-index: 9; display: none;">
+                <h3>TIMER</h3>
+                <ul>
+                    <li>
+                        <button>ON</button>
+                    </li>
+                    <li>
+                        <button class="active">OFF</button>
+                    </li>
+                </ul>
+                <h3>CONTROLS</h3>
+                <ul>
+                    <li>
+                        <button class="active">ON</button>
+                    </li>
+                    <li>
+                        <button>OFF</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="game-over" style="display: none;">
+                <h3>Game Over</h3>
+                <button onclick="tryAgain()">Try Again</button>
+                <button onclick="openLevelBoard()" style="font-size: 1rem;padding: 10px;border: none;">Home</button>
+            </div>
+        </main>
+        <footer id="control-board">
+            <div>
+                <div class="controls">
+                    <div class="row">
+                        <i onclick="changeDirection({key:'ArrowUp'})" class="fa-solid fa-arrow-up-long"></i>
+                    </div>
+                    <div class="row" style="justify-content: space-between;">
+                        <i onclick="changeDirection({key:'ArrowLeft'})" class="fa-solid fa-arrow-left-long"></i>
+                        <i onclick="changeDirection({key:'ArrowRight'})" class="fa-solid fa-arrow-right-long"></i>
+                    </div>
+                    <div class="row">
+                        <i onclick="changeDirection({key:'ArrowDown'})" class="fa-solid fa-arrow-down-long"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
